@@ -1,1 +1,2 @@
-helo
+#!/bin/bash
+pwd
