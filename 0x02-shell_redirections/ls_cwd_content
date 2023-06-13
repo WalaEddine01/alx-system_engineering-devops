@@ -1,0 +1,17 @@
+total 60
+drwxrwxr-x 2 vagrant vagrant 4096 Jun 13 08:45 .
+drwxrwxr-x 6 vagrant vagrant 4096 Jun 12 21:32 ..
+-rwxrw-r-- 1 vagrant vagrant   32 Jun 12 22:51 0-hello_world
+-rwxrwxr-x 1 vagrant vagrant   28 Jun 12 22:48 1-confused_smiley
+-rwxrw-r-- 1 vagrant vagrant   34 Jun 12 22:57 2-hellofile
+-rwxrw-r-- 1 vagrant vagrant   39 Jun 12 23:06 3-twofiles
+-rwxrwxr-x 1 vagrant vagrant   35 Jun 12 23:08 4-lastlines
+-rwxrwxr-x 1 vagrant vagrant   35 Jun 12 23:19 5-firstlines
+-rwxrwxr-x 1 vagrant vagrant   41 Jun 12 23:30 6-third_line
+-rwxrwxr-x 1 vagrant vagrant  100 Jun 13 08:30 7-file
+-rwxrwxr-x 1 vagrant vagrant   37 Jun 13 08:45 8-cwd_state
+-rw-rw-r-- 1 vagrant vagrant   21 Jun 12 22:49 README.md
+-rw-rw-r-- 1 vagrant vagrant   12 Jun 13 08:31 \*\\'"Best School"\'\\*$\?\*\*\*\*\*:)
+-rw-rw-r-- 1 vagrant vagrant  803 Jun 12 23:29 iacta
+-rw-rw-r-- 1 vagrant vagrant    0 Jun 13 08:45 ls_cwd_content
+-rwxrwxr-x 1 vagrant vagrant  186 Jun 12 23:31 oto.sh
