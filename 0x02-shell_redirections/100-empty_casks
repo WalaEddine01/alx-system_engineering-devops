@@ -1,2 +1,2 @@
 #!/bin/bash
-find . -empty -printf %p'\n'
+find . \(-type f -empty -type d -empty \) -printf %f'\n'
