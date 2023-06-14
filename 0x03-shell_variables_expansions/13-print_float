@@ -1,2 +1,2 @@
 #!/bin/bash
-printf %.2f NUM
+Iprintf "%.2f\n" $NUM 
