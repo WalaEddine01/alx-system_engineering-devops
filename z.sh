@@ -1,3 +1,5 @@
-#!/usr/bin/env
+#!/usr/bin/env bash
 
-echo 'wal'
+x=5
+y=10
+echo "$x and $y"
