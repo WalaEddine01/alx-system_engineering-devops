@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # this script lists the content of the current directory
-for i in *
+ls=$(ls)
+for i in $ls
 do
-	i=$(echo "$i" | sed -e 's/[0-9]//' -e 's/-//' -e "s/*//")
-	echo "$i"
+	echo "$i" | cut -d '-' -f2
 done
