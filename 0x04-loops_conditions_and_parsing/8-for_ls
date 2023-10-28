@@ -2,6 +2,6 @@
 # this script lists the content of the current directory
 for i in *
 do
-	i=$(echo "$i" | sed -e 's/[0-9]//' -e 's/-//')
+	i=$(echo "$i" | sed -e 's/[0-9]//' -e 's/-//' -e "s/*//")
 	echo "$i"
 done
