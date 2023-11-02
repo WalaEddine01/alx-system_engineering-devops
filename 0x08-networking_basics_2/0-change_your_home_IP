@@ -1,0 +1,5 @@
+#!/usr/bin/bash
+# this script changes the localhost ip and facebook ip
+echo "8.8.8.8   facebook.com" | sudo tee -a /etc/hosts > /dev/null
+
+sudo sed -i 's/127.0.0.1[[:space:]]\+localhost/127.0.0.2   localhost/' /etc/hosts
