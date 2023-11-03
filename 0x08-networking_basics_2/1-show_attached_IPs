@@ -1,3 +1,3 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 # this script displays all active IPv4 IPs on the machine it’s executed on.
 ifconfig | grep -oP "inet \K\S+" | cut -d '/' -f1
