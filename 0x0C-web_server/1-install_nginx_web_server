@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# this script prepare the environment
+sudo apt update
+sudo apt-get install -y nginx
+sudo sh -c 'echo "Hello World!" > /var/www/html/index.nginx-debian.html'
+sudo service nginx start
