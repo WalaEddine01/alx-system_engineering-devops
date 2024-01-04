@@ -9,9 +9,10 @@ nginx_conf="/etc/nginx/nginx.conf"
 server_block="server {
 
     location /redirect_me {
+    	listen 80;
     	return 301 https://www.youtube.com\|watch?v=QH2-TGUlwu4;
     }
 }"
-sed -i "/http {/a $server_block" $nginx_conf
+sudo sed -i "/http {/r /dev/stdin" $nginx_conf <<< "$server_block"
 ######
 sudo service nginx reload
