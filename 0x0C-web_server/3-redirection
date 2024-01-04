@@ -3,5 +3,15 @@
 sudo apt-get update
 sudo apt-get install -y nginx
 sudo sh -c 'echo "Hello World!" > /var/www/html/index.nginx-debian.html'
-sudo sed -i '/^}$/i \ \n\tlocation \/redirect_me { return 301 https:\/\/www.walaeddine.com;}' /etc/nginx/sites-available/default
-sudo service nginx start
+#####
+nginx_conf="/etc/nginx/nginx.conf"
+
+server_block="server {
+
+    location /redirect_me {
+    	return 301 https://www.youtube.com\|watch?v=QH2-TGUlwu4;
+    }
+}"
+sed -i "/http {/a $server_block" $nginx_conf
+######
+sudo service nginx reload
