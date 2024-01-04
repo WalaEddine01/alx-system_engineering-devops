@@ -3,7 +3,6 @@
 sudo apt-get update
 sudo apt-get install -y nginx
 sudo sh -c 'echo "Hello World!" > /var/www/html/index.nginx-debian.html'
-######
 sudo sh -c 'echo "server {
     listen 80;
     server_name walaeddine.tech;
@@ -16,5 +15,5 @@ sudo sh -c 'echo "server {
         return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
     }
 }" > /etc/nginx/sites-available/default'
-######
 sudo service nginx reload
+
