@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+#shellcheck disable=SC2154
+sudo apt-get update
+sudo apt-get install -y nginx
+sudo sh -c 'echo "Wach A Wala" > /var/www/html/index.html'
+sudo sh -c 'echo "server {
+    listen 80;
+    server_name walaeddine.tech;
+
+    location / {
+        root /var/www/html;
+        index index.html;
+    }
+    location /redirect_me {
+        return 301 https://github.com/WalaEddine01;
+    }
+}" > /etc/nginx/sites-available/default'
+sudo sh -c "echo 'add_header X-Served-By \"\$HOSTNAME\";' >> /etc/nginx/sites-available/default"
+sudo service nginx restart
