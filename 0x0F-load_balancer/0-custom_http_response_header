@@ -2,11 +2,10 @@
 #shellcheck disable=SC2154
 sudo apt-get update
 sudo apt-get install -y nginx
-sudo sh -c 'echo "Wach A Wala" > /var/www/html/index.nginx-debian.html'
+sudo sh -c 'echo "Wach A Wala" > /var/www/html/index.html'
 sudo sh -c 'echo "server {
     listen 80;
-    server_name _;
-
+    server_name walaeddine.tech;
     location / {
         root /var/www/html;
         index index.html;
@@ -15,7 +14,5 @@ sudo sh -c 'echo "server {
         return 301 https://github.com/WalaEddine01;
     }
 }" > /etc/nginx/sites-available/default'
-echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html > /dev/null
-sudo sed "s/server_name _;/&\n\terror_page 404 \/404.html;/" /etc/nginx/sites-available/default | sudo tee /etc/nginx/sites-available/default
 sudo sh -c "echo 'add_header X-Served-By \"\$HOSTNAME\";' >> /etc/nginx/sites-available/default"
 sudo service nginx restart
