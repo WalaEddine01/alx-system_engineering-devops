@@ -5,7 +5,7 @@ sudo apt-get install -y nginx
 sudo sh -c 'echo "Wach A Wala" > /var/www/html/index.html'
 sudo sh -c 'echo "server {
     listen 80;
-    server_name walaeddine.tech;
+
     location / {
         root /var/www/html;
         index index.html;
