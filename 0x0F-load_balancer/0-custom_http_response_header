@@ -2,17 +2,8 @@
 #shellcheck disable=SC2154
 sudo apt-get update
 sudo apt-get install -y nginx
-sudo sh -c 'echo "Wach A Wala" > /var/www/html/index.html'
-sudo sh -c 'echo "server {
-    listen 80;
-
-    location / {
-        root /var/www/html;
-        index index.html;
-    }
-    location /redirect_me {
-        return 301 https://github.com/WalaEddine01;
-    }
-}" > /etc/nginx/sites-available/default'
-sudo sh -c "echo 'add_header X-Served-By \"\$HOSTNAME\";' >> /etc/nginx/sites-available/default"
+sudo sh -c 'echo "Wach A Wala" > /var/www/html/index.nginx-debian.html'
+sudo sh -c "echo \"Ceci n'est pas une page\" > /var/www/html/404.html"
+sudo sed -i '/^http {/a \    error_page 404 404.html;' /etc/nginx/nginx.conf
+sudo sed -i '/^http {/a\    addd_header X-Served-By $hostname;' /etc/nginx/nginx.conf
 sudo service nginx restart
