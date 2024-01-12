@@ -2,4 +2,4 @@
 #
 sudo sed -i "s/8080/80/g" /etc/nginx/sites-enabled/default /etc/nginx/sites-available/default
 sudo service nginx restart
-sudo nginx -s stop
+sudo pkill -o nginx
