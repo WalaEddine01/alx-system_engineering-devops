@@ -2,6 +2,7 @@
 #
 sudo apt-get update -y
 sudo apt-get install ufw -y 
+sudo ufw disable
 sudo ufw default deny incoming
 sudo ufw default allow outgoing
 sudo systemctl stop ufw
