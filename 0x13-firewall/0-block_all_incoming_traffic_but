@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #
-sudo apt-get update -y
-sudo apt-get install ufw -y 
+sudo apt-get -y update
+sudo apt-get -y install ufw
 sudo ufw disable
 sudo ufw default deny incoming
 sudo ufw default allow outgoing
