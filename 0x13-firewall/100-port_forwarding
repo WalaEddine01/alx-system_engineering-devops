@@ -79,7 +79,7 @@ COMMIT
 :POSTROUTING ACCEPT [0:0]
 
 # Forward traffic from port 8000 to port 8080.
--A PREROUTING -p tcp --dport 8080 -j DNAT --to-destination 54.237.91.183:80
+-A PREROUTING -p tcp --dport 8080 -j REDIRECT --to-port 80
 
 
 COMMIT
