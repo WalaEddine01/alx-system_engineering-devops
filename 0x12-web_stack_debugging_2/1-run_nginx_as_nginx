@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-#
+# config the webserver to must be running as nginx user
+# and must be listening on all active IPs on port 8080
 sudo chmod 0644 /etc/nginx/nginx.conf
 pkill -f apache2
 sudo sed -i "s/#user www-data;/user nginx;/" /etc/nginx/nginx.conf
