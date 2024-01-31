@@ -8,7 +8,6 @@ if __name__ == "__main__":
     from sys import argv
     from urllib import request
     ID_ = argv[1]
-    list_ = []
     dict_ = {}
     json_data_list = {
         str(ID_): []
