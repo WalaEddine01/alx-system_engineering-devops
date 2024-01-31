@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """
 This module for get data from users API
+and export it to the 'ID.csv' file
 """
 if __name__ == "__main__":
     import csv
@@ -24,7 +25,7 @@ if __name__ == "__main__":
                     if i.get("userId") is int(ID_):
                         list_.append(i.get("title"))
 
-                csv_file_path = argv[1]
+                csv_file_path = f'{argv[1]}.csv'
                 data = []
                 with open(csv_file_path, 'w', newline='') as csvfile:
                     for i in range(len(res2)):
