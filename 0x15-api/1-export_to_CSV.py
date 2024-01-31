@@ -8,8 +8,7 @@ if __name__ == "__main__":
     import json
     from sys import argv
     from urllib import request
-    ID_ = argv[1]
-    list_ = []
+    ID_ = argv[1]    
     url = "https://jsonplaceholder.typicode.com/users"
     try:
         with request.urlopen(url) as request_:
@@ -21,9 +20,6 @@ if __name__ == "__main__":
             url2 = "https://jsonplaceholder.typicode.com/todos"
             with request.urlopen(url2) as req:
                 res2 = json.load(req)
-                for i in res2:
-                    if i.get("userId") is int(ID_):
-                        list_.append(i.get("title"))
 
                 csv_file_path = f'{argv[1]}.csv'
                 data = []
