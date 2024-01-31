@@ -8,7 +8,7 @@ if __name__ == "__main__":
     import json
     from sys import argv
     from urllib import request
-    ID_ = argv[1]    
+    ID_ = argv[1]
     url = "https://jsonplaceholder.typicode.com/users"
     try:
         with request.urlopen(url) as request_:
