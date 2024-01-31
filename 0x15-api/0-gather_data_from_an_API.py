@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """
+This module for get data from users API
 """
 if __name__ == "__main__":
     from urllib import request
