@@ -3,9 +3,9 @@
 This module for get data from users API
 """
 if __name__ == "__main__":
-    from urllib import request
     import json
     from sys import argv
+    from urllib import request
     ID_ = argv[1]
     list_ = []
     b = 0
