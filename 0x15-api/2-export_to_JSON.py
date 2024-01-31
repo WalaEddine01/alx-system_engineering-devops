@@ -24,14 +24,17 @@ if __name__ == "__main__":
             url2 = "https://jsonplaceholder.typicode.com/todos"
             with request.urlopen(url2) as req:
                 res2 = json.load(req)
-                for i in res2:
-                    if i.get("userId") is int(ID_):
-                        list_.append(i.get("title"))
-                    if i.get("userId") == int(ID_):
-                        b = b + 1
-                print(f"Employee {name} is done with tasks({a}/{b}):")
-                for i in list_:
-                    print("\t ", end="")
-                    print(i)
+                json_file_path = f'{argv[1]}.json'
+                with open(json_file_path, 'w', newline='') as jsonfile:
+                    for i in range(len(res2)):
+                        dict_ = {}
+                        if res2[i].get("userId") is int(ID_):
+                            completed = res2[i].get('completed')
+                            title = res2[i].get("title")
+                            dict_['task'] = title
+                            dict_['completed'] = completed
+                            dict_['username'] = username
+                            json_data_list[str(ID_)].append(dict_)
+                    json.dump(json_data_list, jsonfile)
     except Exception as e:
         print(f"Error code: {e}")
