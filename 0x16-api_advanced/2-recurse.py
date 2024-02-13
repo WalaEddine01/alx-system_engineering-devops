@@ -17,7 +17,7 @@ def recurse(subreddit, hot_list=[], after=None):
     containing the titles of all hot articles for a given subreddit
     """
     url = f"https://www.reddit.com/r/{subreddit}/hot.json"
-    param = {'after': 1} if param else {}
+    param = {'after': after}
     res = get(url=url, headers=header, allow_redirects=False, params=param)
     if res.status_code == 200:
         for post in res.json().get('data', {}).get('children', []):
