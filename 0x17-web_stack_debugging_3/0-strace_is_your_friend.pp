@@ -1,5 +1,6 @@
-$file_path = '/var/www/html/wp-settings.php'
-exec { 'replace_line':
-  command => "sed -i 's/phpp/php/g' ${file_path}",
-  path    => ['/bin','/usr/bin']
+$path_file = '/var/www/html/wp-settings.php'
+
+exec { 'replace_string':
+  command => " -i 's/phpp/php/g' ${path_file}", # replace phpp with php
+  path    => ['/usr/bin', '/bin', '/usr'] # or wherever sed is located
 }
