@@ -14,10 +14,10 @@ exec { 'fix_server':
 }
 
 exec { 'set the limit':
-  path    => '/bin',
-  command => "sed -i 's/15/2000/' /etc/default/nginx"
+  command => "sed -i 's/15/2000/' /etc/default/nginx",
+  path    => '/bin'
 }
 
-exec { 'reboot nginx':
+exec { 'resart nginx':
   command => '/usr/sbin/service nginx restart'
 }
