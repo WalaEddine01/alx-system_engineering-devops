@@ -11,4 +11,3 @@ exec { 'soft_limit':
   command => 'sed -i "s/holberton soft nofile 4/holberton soft nofile 4000/g" /etc/security/limits.conf',
   path    => '/bin',
 }
-
