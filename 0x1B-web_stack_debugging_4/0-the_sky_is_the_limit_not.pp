@@ -11,7 +11,4 @@ service { 'nginx':
 exec { 'fix_server':
   command => "/bin/sed -i 's|root /usr/share/nginx/html;|root ${path2};|' /etc/nginx/sites-available/default",
   path    => ['/usr/bin', '/bin', '/usr/sbin', '/sbin'],
-  onlyif  => "/bin/grep -q 'root /usr/share/nginx/html;' /etc/nginx/sites-available/default",
-  notify  => Service['nginx'],
 }
-
