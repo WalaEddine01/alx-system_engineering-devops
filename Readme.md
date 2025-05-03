@@ -195,6 +195,6 @@ To build a fully functional backend that supports:
 
 ## 📚 Additional Resources
 
-- ([System design architecture for hotel booking apps](https://medium.com/nerd-for-tech/system-design-architecture-for-hotel-booking-apps-like-airbnb-oyo-6efb4f4dddd7))
+- [System design architecture for hotel booking apps](https://medium.com/nerd-for-tech/system-design-architecture-for-hotel-booking-apps-like-airbnb-oyo-6efb4f4dddd7)
  
 - [Software development team structure](https://itrexgroup.com/blog/software-development-team-structure/)
