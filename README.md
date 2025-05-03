@@ -6,7 +6,7 @@ The backend for the **Airbnb Clone** project is designed to provide a robust and
 
 ---
 
-## Navigation
+## 📚 Table of Contents
 - [🏆 Feature Breakdown](#-feature-breakdown)
 - [🛠️ Features Overview](#-features-overview)
 - [⚙️ Technology Stack](#-technology-stack)
