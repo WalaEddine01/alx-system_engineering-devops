@@ -6,18 +6,6 @@ The backend for the **Airbnb Clone** project is designed to provide a robust and
 
 ---
 
-## 🚀 Objective
-
-To build a fully functional backend that supports:
-
-- Secure user management
-- Property listing and discovery
-- Booking system for guests
-- Payment processing for reservations
-- Review system for user feedback
-
----
-
 ## 🏆 Project Goals
 
 - **User Management**:  
@@ -56,11 +44,8 @@ To build a fully functional backend that supports:
 ### 2. User Authentication
 
 - **Endpoints**:  
-  - `GET /users/`  
-  - `POST /users/`  
-  - `GET /users/{user_id}/`  
-  - `PUT /users/{user_id}/`  
-  - `DELETE /users/{user_id}/`
+  - `/users/`  
+  - `/users/{user_id}/`  
 
 - **Features**:  
   Register new users, authenticate, update, and manage profiles.
@@ -68,11 +53,8 @@ To build a fully functional backend that supports:
 ### 3. Property Management
 
 - **Endpoints**:  
-  - `GET /properties/`  
-  - `POST /properties/`  
-  - `GET /properties/{property_id}/`  
-  - `PUT /properties/{property_id}/`  
-  - `DELETE /properties/{property_id}/`
+  - `/properties/`  
+  - `/properties/{property_id}/`
 
 - **Features**:  
   Create, update, retrieve, and delete property listings.
@@ -80,11 +62,8 @@ To build a fully functional backend that supports:
 ### 4. Booking System
 
 - **Endpoints**:  
-  - `GET /bookings/`  
-  - `POST /bookings/`  
-  - `GET /bookings/{booking_id}/`  
-  - `PUT /bookings/{booking_id}/`  
-  - `DELETE /bookings/{booking_id}/`
+  - `/bookings/`  
+  - `/bookings/{booking_id}/`  
 
 - **Features**:  
   Make, update, and manage bookings including check-in/check-out.
@@ -92,7 +71,7 @@ To build a fully functional backend that supports:
 ### 5. Payment Processing
 
 - **Endpoints**:  
-  - `POST /payments/`
+  - `/payments/`
 
 - **Features**:  
   Handle payment transactions related to bookings.
@@ -100,11 +79,8 @@ To build a fully functional backend that supports:
 ### 6. Review System
 
 - **Endpoints**:  
-  - `GET /reviews/`  
-  - `POST /reviews/`  
-  - `GET /reviews/{review_id}/`  
-  - `PUT /reviews/{review_id}/`  
-  - `DELETE /reviews/{review_id}/`
+  - `/reviews/`  
+  - `/reviews/{review_id}/`
 
 - **Features**:  
   Post and manage property reviews.
