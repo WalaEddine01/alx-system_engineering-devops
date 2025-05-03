@@ -6,6 +6,20 @@ The backend for the **Airbnb Clone** project is designed to provide a robust and
 
 ---
 
+## Navigation
+- [🏆 Feature Breakdown](#-feature-breakdown)
+- [🛠️ Features Overview](#-features-overview)
+- [⚙️ Technology Stack](#-technology-stack)
+- [👥 Team Roles](#-team-roles)
+- [📈 API Documentation Overview](#-api-documentation-overview)
+- [📊 Database Design](#-database-design)
+- [🔒 API Security](#-api-security)
+- [CI/CD Pipeline](#-ci-cd-pipeline)
+- [📌 Endpoints Overview](#-endpoints-overview)
+- [📚 Additional Resources](#-additional-resources)
+
+---
+
 ## 🏆 Feature Breakdown
 
 - **User Management**:  
