@@ -254,6 +254,10 @@ The database schema is designed to support the core functionalities of the appli
   Provide meaningful error messages to help users understand the issue.
 
 ---
+
+## ![CI/CD Pipeline](https://miro.medium.com/v2/resize:fit:1200/format:webp/1*X8v4g3qk5x7J6m9rY1QK0A.png) CI/CD Pipeline emoji
+
+---
 ## 📌 Endpoints Overview
 
 ### 🧑 Users
