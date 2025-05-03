@@ -6,7 +6,7 @@ The backend for the **Airbnb Clone** project is designed to provide a robust and
 
 ---
 
-## 🏆 Project Goals
+## 🏆 Feature Breakdown
 
 - **User Management**:  
   Implement a secure system for user registration, authentication, and profile management.
