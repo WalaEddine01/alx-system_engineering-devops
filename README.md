@@ -134,6 +134,65 @@ The backend for the **Airbnb Clone** project is designed to provide a robust and
 
 ---
 
+## 📊 Database Design 
+The database schema is designed to support the core functionalities of the application. The main entities include:
+
+### 🧑 Users
+- **UserID**: Unique identifier for each user.
+- **Username**: Unique username for login.
+- **Email**: User's email address.
+- **Password**: Hashed password for authentication.
+- **FirstName**: User's first name.
+- **LastName**: User's last name.
+- **PhoneNumber**: User's contact number.
+- **ProfilePicture**: URL to the user's profile picture.
+- **CreatedAt**: Timestamp of user creation.
+- **UpdatedAt**: Timestamp of last update.
+
+
+### 🏠 Properties
+- **PropertyID**: Unique identifier for each property.
+- **OwnerID**: Foreign key referencing the user who owns the property.
+- **Title**: Title of the property listing.
+- **Description**: Detailed description of the property.
+- **Location**: Address or coordinates of the property.
+- **Price**: Price per night for booking.
+- **Amenities**: List of amenities available at the property.
+- **Availability**: Availability status of the property.
+- **CreatedAt**: Timestamp of property creation.
+- **UpdatedAt**: Timestamp of last update.
+
+### 📅 Bookings
+- **BookingID**: Unique identifier for each booking.
+- **UserID**: Foreign key referencing the user who made the booking.
+- **PropertyID**: Foreign key referencing the booked property.
+- **CheckInDate**: Date of check-in.
+- **CheckOutDate**: Date of check-out.
+- **TotalPrice**: Total price for the booking.
+- **Status**: Status of the booking (confirmed, canceled, etc.).
+- **CreatedAt**: Timestamp of booking creation.
+- **UpdatedAt**: Timestamp of last update.
+
+### 💳 Payments
+- **PaymentID**: Unique identifier for each payment.
+- **BookingID**: Foreign key referencing the associated booking.
+- **Amount**: Amount charged for the payment.
+- **PaymentMethod**: Method used for the payment (credit card, PayPal, etc.).
+- **Status**: Status of the payment (completed, pending, failed).
+- **CreatedAt**: Timestamp of payment creation.
+- **UpdatedAt**: Timestamp of last update.
+
+### ⭐ Reviews
+- **ReviewID**: Unique identifier for each review.
+- **UserID**: Foreign key referencing the user who wrote the review.
+- **PropertyID**: Foreign key referencing the reviewed property.
+- **Rating**: Rating given by the user (e.g., 1 to 5 stars).
+- **Comment**: Textual feedback provided by the user.
+- **CreatedAt**: Timestamp of review creation.
+- **UpdatedAt**: Timestamp of last update.
+
+---
+
 ## 📌 Endpoints Overview
 
 ### 🧑 Users
