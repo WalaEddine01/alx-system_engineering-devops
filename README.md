@@ -156,29 +156,41 @@ The backend for the **Airbnb Clone** project is designed to provide a robust and
 The database schema is designed to support the core functionalities of the application. The main entities include:
 
 ### 🧑 Users
-- **UserID**: Unique identifier for each user.
-- **Username**: Unique username for login.
-- **Email**: User's email address.
-- **Password**: Hashed password for authentication.
-- **FirstName**: User's first name.
-- **LastName**: User's last name.
-- **PhoneNumber**: User's contact number.
-- **ProfilePicture**: URL to the user's profile picture.
-- **CreatedAt**: Timestamp of user creation.
-- **UpdatedAt**: Timestamp of last update.
-
+| Field Name | Type | Description |
+|------------|------|-------------|
+| UserID | Integer | Unique identifier for each user |
+| Username | String | Unique username for the user |
+| Email | String | User's email address |
+| PasswordHash | String | Hashed password for security |
+| FirstName | String | User's first name |
+| LastName | String | User's last name |
+| PhoneNumber | String | User's phone number |
+| ProfilePicture | String | URL to the user's profile picture |
+| CreatedAt | Timestamp | Timestamp of user creation |
+| UpdatedAt | Timestamp | Timestamp of last update |
+| Role | String | User role (admin, user, host) |
+| IsVerified | Boolean | Verification status of the user |
+| Address | String | User's address |
+| City | String | User's city |
+| State | String | User's state |
+| Country | String | User's country |
+| ZipCode | String | User's zip code |
 
 ### 🏠 Properties
-- **PropertyID**: Unique identifier for each property.
-- **OwnerID**: Foreign key referencing the user who owns the property.
-- **Title**: Title of the property listing.
-- **Description**: Detailed description of the property.
-- **Location**: Address or coordinates of the property.
-- **Price**: Price per night for booking.
-- **Amenities**: List of amenities available at the property.
-- **Availability**: Availability status of the property.
-- **CreatedAt**: Timestamp of property creation.
-- **UpdatedAt**: Timestamp of last update.
+### 🏠 Properties
+
+| Field Name   | Type       | Description                                      |
+|--------------|------------|--------------------------------------------------|
+| PropertyID   | Integer    | Unique identifier for each property              |
+| OwnerID      | Integer    | Foreign key referencing the user who owns the property |
+| Title        | String     | Title of the property listing                    |
+| Description  | String     | Detailed description of the property             |
+| Location     | String     | Address or coordinates of the property           |
+| Price        | Decimal    | Price per night for booking                      |
+| Amenities    | Array      | List of amenities available at the property      |
+| Availability | Boolean    | Availability status of the property              |
+| CreatedAt    | Timestamp  | Timestamp of property creation                   |
+| UpdatedAt    | Timestamp  | Timestamp of last update                         |
 
 ### 📅 Bookings
 - **BookingID**: Unique identifier for each booking.
