@@ -193,33 +193,42 @@ The database schema is designed to support the core functionalities of the appli
 | UpdatedAt    | Timestamp  | Timestamp of last update                         |
 
 ### 📅 Bookings
-- **BookingID**: Unique identifier for each booking.
-- **UserID**: Foreign key referencing the user who made the booking.
-- **PropertyID**: Foreign key referencing the booked property.
-- **CheckInDate**: Date of check-in.
-- **CheckOutDate**: Date of check-out.
-- **TotalPrice**: Total price for the booking.
-- **Status**: Status of the booking (confirmed, canceled, etc.).
-- **CreatedAt**: Timestamp of booking creation.
-- **UpdatedAt**: Timestamp of last update.
+
+| Field Name    | Type       | Description                                      |
+|---------------|------------|--------------------------------------------------|
+| BookingID     | Integer    | Unique identifier for each booking               |
+| UserID        | Integer    | Foreign key referencing the user who made the booking |
+| PropertyID    | Integer    | Foreign key referencing the booked property      |
+| CheckInDate   | Date       | Date of check-in                                 |
+| CheckOutDate  | Date       | Date of check-out                                |
+| TotalPrice    | Decimal    | Total price for the booking                      |
+| Status        | String     | Status of the booking (e.g., confirmed, canceled)|
+| CreatedAt     | Timestamp  | Timestamp of booking creation                    |
+| UpdatedAt     | Timestamp  | Timestamp of last update                         |
 
 ### 💳 Payments
-- **PaymentID**: Unique identifier for each payment.
-- **BookingID**: Foreign key referencing the associated booking.
-- **Amount**: Amount charged for the payment.
-- **PaymentMethod**: Method used for the payment (credit card, PayPal, etc.).
-- **Status**: Status of the payment (completed, pending, failed).
-- **CreatedAt**: Timestamp of payment creation.
-- **UpdatedAt**: Timestamp of last update.
+
+| Field Name     | Type       | Description                                      |
+|----------------|------------|--------------------------------------------------|
+| PaymentID      | Integer    | Unique identifier for each payment               |
+| BookingID      | Integer    | Foreign key referencing the associated booking   |
+| Amount         | Decimal    | Amount charged for the payment                   |
+| PaymentMethod  | String     | Method used for the payment (e.g., credit card, PayPal) |
+| Status         | String     | Status of the payment (e.g., completed, pending, failed) |
+| CreatedAt      | Timestamp  | Timestamp of payment creation                    |
+| UpdatedAt      | Timestamp  | Timestamp of last update                         |
 
 ### ⭐ Reviews
-- **ReviewID**: Unique identifier for each review.
-- **UserID**: Foreign key referencing the user who wrote the review.
-- **PropertyID**: Foreign key referencing the reviewed property.
-- **Rating**: Rating given by the user (e.g., 1 to 5 stars).
-- **Comment**: Textual feedback provided by the user.
-- **CreatedAt**: Timestamp of review creation.
-- **UpdatedAt**: Timestamp of last update.
+
+| Field Name    | Type       | Description                                      |
+|---------------|------------|--------------------------------------------------|
+| ReviewID      | Integer    | Unique identifier for each review                |
+| UserID        | Integer    | Foreign key referencing the user who wrote the review |
+| PropertyID    | Integer    | Foreign key referencing the reviewed property    |
+| Rating        | Integer    | Rating given by the user (e.g., 1 to 5 stars)    |
+| Comment       | String     | Textual feedback provided by the user            |
+| CreatedAt     | Timestamp  | Timestamp of review creation                     |
+| UpdatedAt     | Timestamp  | Timestamp of last update                         |
 
 ---
 
