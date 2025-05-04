@@ -177,7 +177,6 @@ The database schema is designed to support the core functionalities of the appli
 | ZipCode | String | User's zip code |
 
 ### 🏠 Properties
-### 🏠 Properties
 
 | Field Name   | Type       | Description                                      |
 |--------------|------------|--------------------------------------------------|
