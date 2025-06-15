@@ -1,2 +1,2 @@
 #!/bin/bash
-for a in {a..z}; do for b in {a..z}; do if [ "$a$b" != "oo" ]; then echo "$a$b"; fi; done; done
+printf "%s\n" {a..z}{a..z} | grep -v "^oo$"
