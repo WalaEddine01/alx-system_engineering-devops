@@ -1,3 +1,2 @@
 #!/bin/bash
-echo "$PATH" | tr :'
-' | grep -v ^ | wc -l
+echo "$PATH" | tr ':' '\n' | grep -v '^$' | wc -l
