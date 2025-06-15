@@ -1,2 +1,2 @@
 #!/bin/bash
-python3 -c 'e="bestchol";w=int("".join([str("ewatr".index(c))for c in __import__("os").environ["WATER"]]),5);s=int("".join([str("stir.".index(c))for c in __import__("os").environ["STIR"]]),5);n=w+s;r="";exec("while n:r=e[n%8]+r;n//=8");print(r)'
+python3 -c 'import os;n=int("".join(str("ewatr".index(c))for c in os.environ["WATER"]),5)+int("".join(str("stir.".index(c))for c in os.environ["STIR"]),5);e="bestchol";r="";exec("while n:\n r=e[n%8]+r\n n//=8");print(r)'
