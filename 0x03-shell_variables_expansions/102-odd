@@ -1,2 +1,2 @@
 #!/bin/bash
-i=0; while IFS= read -r line; do [ $((i++ % 2)) -eq 0 ] && echo "$line"; done
+paste - - - - - - - - - - | cut -f1
