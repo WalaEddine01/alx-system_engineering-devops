@@ -1,2 +1,2 @@
 #!/bin/bash
-paste - - - - - - - - - - | cut -f1
+nl | grep -E '^[[:space:]]*[13579]' | cut -f2-
