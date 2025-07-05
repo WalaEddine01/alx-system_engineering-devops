@@ -1,0 +1,16 @@
+# UFW Configuration to forward port 8080 to 80
+
+# 1. Enable UFW packet forwarding (required)
+echo "net.ipv4.ip_forward=1" >> /etc/sysctl.conf
+sysctl -p
+
+# 2. Add UFW before.rules entry to redirect port 8080 to 80
+cat << RULES | tee /etc/ufw/before.rules > /dev/null
+*nat
+:PREROUTING ACCEPT [0:0]
+-A PREROUTING -p tcp --dport 8080 -j REDIRECT --to-port 80
+COMMIT
+RULES
+
+# 3. Reload UFW to apply rules
+ufw reload
