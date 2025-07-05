@@ -1,0 +1,7 @@
+#!/bin/bash
+
+echo "Ceci n'est pas une page" > /var/www/html/custom_404.html
+
+sed -i '/server_name _;/a \\terror_page 404 /custom_404.html;\n\tlocation = /custom_404.html {\n\t\tinternal;\n\t}' /etc/nginx/sites-available/default
+
+service nginx restart || nginx -s reload

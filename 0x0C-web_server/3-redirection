@@ -1,0 +1,7 @@
+#!/bin/bash
+
+echo "Hello World!" > /var/www/html/index.nginx-debian.html
+
+sed -i '/server_name _;/a \\tlocation /redirect_me {\n\t\treturn 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\n\t}' /etc/nginx/sites-available/default
+
+service nginx restart || nginx -s reload
