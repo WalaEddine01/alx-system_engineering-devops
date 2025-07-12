@@ -1,29 +1,24 @@
 #!/usr/bin/env bash
-
-DOMAIN=$1
-SUBDOMAIN=$2
-
-get_record() {
-    local sub="$1"
-    local domain="$2"
-    local full="${sub}.${domain}"
-
-    local result
-    result=$(dig "$full" | awk '/^;; ANSWER SECTION:/ {getline; print $4, $5}')
-
-    local type
-    type=$(echo "$result" | awk '{print $1}')
-
-    local ip
-    ip=$(echo "$result" | awk '{print $2}')
-
-    echo "The subdomain $sub is a $type record and points to $ip"
+#
+# shellcheck disable=SC2086
+query_subdomain() {
+	local res
+	local rec
+	local ip
+        res=$(dig "$1.$2"| grep -A1 'ANSWER SECTION:')
+        rec=$(echo "$res" | awk 'NR==2' | awk '{print $4}')
+        ip=$(echo "$res" | awk 'NR==2' | awk '{print $5}')
+        echo "The subdomain $1 is a $rec record and points to $ip"
 }
-
-if [ -z "$SUBDOMAIN" ]; then
-    for sub in www lb-01 web-01 web-02; do
-        get_record "$sub" "$DOMAIN"
-    done
+if [ "$#" -gt 1 ]
+then
+	res=$(dig "$2.$1"| grep -A1 'ANSWER SECTION:')
+        rec=$(echo "$res" | awk 'NR==2' | awk '{print $4}')
+	ip=$(echo "$res" | awk 'NR==2' | awk '{print $5}')
+	echo "The subdomain $2 is a $rec record and points to $ip"
 else
-    get_record "$SUBDOMAIN" "$DOMAIN"
+	subdomains=("www" "lb-01" "web-01" "web-02")
+	for subdomain in "${subdomains[@]}"; do
+		query_subdomain "$subdomain" "$1"
+	done
 fi
