@@ -4,18 +4,25 @@
 DOMAIN=$1
 SUBDOMAIN=$2
 
+# Function to get record using dig and format output
 get_dns_info() {
   local SUB=$1
   local DOMAIN=$2
-  local IP=$(dig +short "$SUB.$DOMAIN")
-  echo "The subdomain $SUB is a A record and points to $IP"
+  local FULL_DOMAIN="${SUB}.${DOMAIN}"
+  local RECORD=$(dig "$FULL_DOMAIN" +short | head -n1)
+
+  if [ -n "$RECORD" ]; then
+    echo "The subdomain $SUB is a A record and points to $RECORD"
+  else
+    echo "The subdomain $SUB could not be resolved"
+  fi
 }
 
-
+# Main logic
 if [ -n "$SUBDOMAIN" ]; then
-  get_dns_info "$SUBDOMAIN.$DOMAIN"
+  get_dns_info "$SUBDOMAIN" "$DOMAIN"
 else
   for name in www lb-01 web-01 web-02; do
-    get_dns_info "$name.$DOMAIN"
+    get_dns_info "$name" "$DOMAIN"
   done
 fi
