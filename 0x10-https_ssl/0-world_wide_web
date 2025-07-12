@@ -3,19 +3,31 @@
 DOMAIN=$1
 SUBDOMAIN=$2
 
-# Function to get record using dig and format output
-DOMAIN="$1"
-SUBDOMAIN="$2"
 extract_dns_info() {
-    if [ -n "$3" ]; then
-        awk -v SUBDOMAIN="$1" -v record_type="$2" -v ip_address="$3" 'BEGIN {printf "The SUBDOMAIN %s is a %s record and points to %s\n", SUBDOMAIN, record_type, ip_address}'
-    fi
+    local name=$1
+    local type=$2
+    local dest=$3
+    echo "The subdomain $name is a $type record and points to $dest"
 }
-if [ ${#SUBDOMAIN} -eq 0 ]; then
-    dig "www.$DOMAIN" | grep -A1 'ANSWER SECTION:' | awk '{print $4, $5}' | while read record_type ip_address; do extract_dns_info "www" "$record_type" "$ip_address"; done
-    dig "lb-01.$DOMAIN" | grep -A1 'ANSWER SECTION:' | awk '{print $4, $5}' | while read record_type ip_address; do extract_dns_info "lb-01" "$record_type" "$ip_address"; done
-    dig "web-01.$DOMAIN" | grep -A1 'ANSWER SECTION:'| awk '{print $4, $5}' | while read record_type ip_address; do extract_dns_info "web-01" "$record_type" "$ip_address"; done
-    dig "web-02.$DOMAIN" | grep -A1 'ANSWER SECTION:' | awk '{print $4, $5}' | while read record_type ip_address; do extract_dns_info "web-02" "$record_type" "$ip_address"; done
+
+if [ -z "$SUBDOMAIN" ]; then
+    dig "www.$DOMAIN" | grep -A1 'ANSWER SECTION:' | awk '{print $4, $5}' | while read -r record_type ip_address; do
+        extract_dns_info "www" "$record_type" "$ip_address"
+    done
+
+    dig "lb-01.$DOMAIN" | grep -A1 'ANSWER SECTION:' | awk '{print $4, $5}' | while read -r record_type ip_address; do
+        extract_dns_info "lb-01" "$record_type" "$ip_address"
+    done
+
+    dig "web-01.$DOMAIN" | grep -A1 'ANSWER SECTION:' | awk '{print $4, $5}' | while read -r record_type ip_address; do
+        extract_dns_info "web-01" "$record_type" "$ip_address"
+    done
+
+    dig "web-02.$DOMAIN" | grep -A1 'ANSWER SECTION:' | awk '{print $4, $5}' | while read -r record_type ip_address; do
+        extract_dns_info "web-02" "$record_type" "$ip_address"
+    done
 else
-    dig "$SUBDOMAIN.$DOMAIN" | grep -A1 'ANSWER SECTION:' | awk '{print $4, $5}' | while read record_type ip_address; do extract_dns_info "$SUBDOMAIN" "$record_type" "$ip_address"; done
+    dig "$SUBDOMAIN.$DOMAIN" | grep -A1 'ANSWER SECTION:' | awk '{print $4, $5}' | while read -r record_type ip_address; do
+        extract_dns_info "$SUBDOMAIN" "$record_type" "$ip_address"
+    done
 fi
