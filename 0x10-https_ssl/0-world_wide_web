@@ -5,24 +5,18 @@ DOMAIN=$1
 SUBDOMAIN=$2
 
 # Function to get record using dig and format output
-get_dns_info() {
-  local SUB=$1
-  local DOMAIN=$2
-  local FULL_DOMAIN="${SUB}.${DOMAIN}"
-  local RECORD=$(dig "$FULL_DOMAIN" +short | head -n1)
-
-  if [ -n "$RECORD" ]; then
-    echo "The subdomain $SUB is a A record and points to $RECORD"
-  else
-    echo "The subdomain $SUB could not be resolved"
-  fi
+DOMAIN="$1"
+SUBDOMAIN="$2"
+extract_dns_info() {
+    if [ -n "$3" ]; then
+        awk -v SUBDOMAIN="$1" -v record_type="$2" -v ip_address="$3" 'BEGIN {printf "The SUBDOMAIN %s is a %s record and points to %s\n", SUBDOMAIN, record_type, ip_address}'
+    fi
 }
-
-# Main logic
-if [ -n "$SUBDOMAIN" ]; then
-  get_dns_info "$SUBDOMAIN" "$DOMAIN"
+if [ ${#SUBDOMAIN} -eq 0 ]; then
+    dig "www.$DOMAIN" | grep -A1 'ANSWER SECTION:' | awk '{print $4, $5}' | while read record_type ip_address; do extract_dns_info "www" "$record_type" "$ip_address"; done
+    dig "lb-01.$DOMAIN" | grep -A1 'ANSWER SECTION:' | awk '{print $4, $5}' | while read record_type ip_address; do extract_dns_info "lb-01" "$record_type" "$ip_address"; done
+    dig "web-01.$DOMAIN" | grep -A1 'ANSWER SECTION:'| awk '{print $4, $5}' | while read record_type ip_address; do extract_dns_info "web-01" "$record_type" "$ip_address"; done
+    dig "web-02.$DOMAIN" | grep -A1 'ANSWER SECTION:' | awk '{print $4, $5}' | while read record_type ip_address; do extract_dns_info "web-02" "$record_type" "$ip_address"; done
 else
-  for name in www lb-01 web-01 web-02; do
-    get_dns_info "$name" "$DOMAIN"
-  done
+    dig "$SUBDOMAIN.$DOMAIN" | grep -A1 'ANSWER SECTION:' | awk '{print $4, $5}' | while read record_type ip_address; do extract_dns_info "$SUBDOMAIN" "$record_type" "$ip_address"; done
 fi
