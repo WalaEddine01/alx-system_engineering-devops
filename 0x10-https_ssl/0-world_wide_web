@@ -1,0 +1,18 @@
+#!/bin/bash
+# 0-world_wide_web
+
+DOMAIN=$1
+SUBDOMAIN=$2
+
+get_dns_info() {
+  local FULL_DOMAIN=$1
+  dig $FULL_DOMAIN +short | awk -v sd="$FULL_DOMAIN" '{print "The subdomain " sd " is a A record and points to " $1}'
+}
+
+if [ -n "$SUBDOMAIN" ]; then
+  get_dns_info "$SUBDOMAIN.$DOMAIN"
+else
+  for name in www lb-01 web-01 web-02; do
+    get_dns_info "$name.$DOMAIN"
+  done
+fi

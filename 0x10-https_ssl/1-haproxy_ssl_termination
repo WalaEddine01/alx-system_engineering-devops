@@ -1,0 +1,27 @@
+global
+    log /dev/log    local0
+    log /dev/log    local1 notice
+    chroot /var/lib/haproxy
+    user haproxy
+    group haproxy
+    daemon
+    ssl-default-bind-options no-sslv3
+    ssl-default-bind-ciphers ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256
+
+defaults
+    log     global
+    mode    http
+    option  httplog
+    timeout connect 5000
+    timeout client  50000
+    timeout server  50000
+
+frontend https-in
+    bind *:443 ssl crt /etc/letsencrypt/live/www.yourdomain.com/fullchain.pem key /etc/letsencrypt/live/www.yourdomain.com/privkey.pem
+    mode http
+    default_backend web-backend
+
+backend web-backend
+    balance roundrobin
+    server web-01 YOUR_WEB_01_IP:80 check
+    server web-02 YOUR_WEB_02_IP:80 check
