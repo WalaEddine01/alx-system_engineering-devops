@@ -5,9 +5,12 @@ DOMAIN=$1
 SUBDOMAIN=$2
 
 get_dns_info() {
-  local FULL_DOMAIN=$1
-  dig $FULL_DOMAIN +short | awk -v sd="$FULL_DOMAIN" '{print "The subdomain " sd " is a A record and points to " $1}'
+  local SUB=$1
+  local DOMAIN=$2
+  local IP=$(dig +short "$SUB.$DOMAIN")
+  echo "The subdomain $SUB is a A record and points to $IP"
 }
+
 
 if [ -n "$SUBDOMAIN" ]; then
   get_dns_info "$SUBDOMAIN.$DOMAIN"
