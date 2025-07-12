@@ -21,11 +21,10 @@ frontend http-in
     redirect scheme https code 301 if !{ ssl_fc }
 
 frontend https-in
-    bind *:443 ssl crt /etc/letsencrypt/live/www.yourdomain.com/fullchain.pem key /etc/letsencrypt/live/www.yourdomain.com/privkey.pem
     mode http
     default_backend web-backend
 
 backend web-backend
     balance roundrobin
-    server web-01 YOUR_WEB_01_IP:80 check
-    server web-02 YOUR_WEB_02_IP:80 check
+    server web-01 54.210.47.110:80 check
+    server web-02 34.198.248.145:80 check
