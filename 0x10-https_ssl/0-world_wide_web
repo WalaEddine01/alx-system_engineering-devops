@@ -1,5 +1,4 @@
-#!/bin/bash
-# 0-world_wide_web
+#!/usr/bin/env bash
 
 DOMAIN=$1
 SUBDOMAIN=$2
